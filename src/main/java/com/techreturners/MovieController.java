@@ -4,9 +4,9 @@ public class MovieController {
 
     private Seat [] seats;
     private final int MAX_SEATS = 15;
-    private int seatPointer = 0;
+    private int availableSeatsCounter = 0;
 
-    public void MovieController() {
+    public MovieController() {
         seats = new Seat[MAX_SEATS];
         for(int i = 0; i < MAX_SEATS; i++){
             seats[i] = Seat.intToSeat(i);
@@ -14,8 +14,15 @@ public class MovieController {
     }
 
     public int getSeats(int requestNumberSeats) {
-       int allocatedSeat = 0;
-       return allocatedSeat;
+       int available = MAX_SEATS - availableSeatsCounter;
+       if(available >= requestNumberSeats){
+           availableSeatsCounter += requestNumberSeats;
+           return requestNumberSeats;
+       }
+       else{
+           return 0;
+       }
+
     }
 
 
