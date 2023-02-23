@@ -9,6 +9,7 @@ public class MovieController {
     public void MovieController() {
         seats = new Seat[MAX_SEATS];
         for(int i = 0; i < MAX_SEATS; i++){
+            seats[i] = Seat.intToSeat(i);
         }
     }
 
