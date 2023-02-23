@@ -1,6 +1,6 @@
 package com.techreturners;
 
-public class Seat {
+public class    Seat {
 
     private static int SEATS_PER_ROW = 5;
     private String seatNumber;

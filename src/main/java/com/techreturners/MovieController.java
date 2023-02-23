@@ -13,10 +13,14 @@ public class MovieController {
         }
     }
 
+    public int getAvailableSeatCount(){
+        return MAX_SEATS - freeSeatsPointer;
+    }
+
     public Seat[] getSeats(int requestNumberSeats) {
         Seat [] allocatedSeats;
 
-        int available = MAX_SEATS - freeSeatsPointer;
+        int available = getAvailableSeatCount();
 
         if(requestNumberSeats > 0 && requestNumberSeats <= available){
             allocatedSeats = new Seat[requestNumberSeats];
@@ -34,7 +38,8 @@ public class MovieController {
         }
         return allocatedSeats;
 
-        }
+    }
+
 
 
 }
