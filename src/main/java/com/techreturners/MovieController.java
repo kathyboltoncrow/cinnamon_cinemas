@@ -2,9 +2,9 @@ package com.techreturners;
 
 public class MovieController {
 
-    private Seat [] seats;
+    private final Seat [] seats;
     private final int MAX_SEATS = 15;
-    private int availableSeatsCounter = 0;
+    private int freeSeatsPointer = 0;
 
     public MovieController() {
         seats = new Seat[MAX_SEATS];
@@ -13,17 +13,28 @@ public class MovieController {
         }
     }
 
-    public int getSeats(int requestNumberSeats) {
-       int available = MAX_SEATS - availableSeatsCounter;
-       if(available >= requestNumberSeats){
-           availableSeatsCounter += requestNumberSeats;
-           return requestNumberSeats;
-       }
-       else{
-           return 0;
-       }
+    public Seat[] getSeats(int requestNumberSeats) {
+        Seat [] allocatedSeats;
 
-    }
+        int available = MAX_SEATS - freeSeatsPointer;
+
+        if(requestNumberSeats > 0 && requestNumberSeats <= available){
+            allocatedSeats = new Seat[requestNumberSeats];
+            for(int i = 0; i < requestNumberSeats; i++){
+
+                Seat allocatedSeat = seats[freeSeatsPointer];
+                allocatedSeat.setReserved(true);
+                allocatedSeats[i] = allocatedSeat;
+                freeSeatsPointer++;
+
+            }
+        }
+        else{
+            allocatedSeats = new Seat[0];
+        }
+        return allocatedSeats;
+
+        }
 
 
 }
