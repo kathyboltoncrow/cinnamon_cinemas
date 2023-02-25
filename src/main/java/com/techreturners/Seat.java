@@ -27,7 +27,6 @@ public class    Seat {
         if(seatNumber != null){
             result = new Seat(seatNumber);
         }
-
         return result;
     }
 

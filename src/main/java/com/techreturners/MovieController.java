@@ -30,16 +30,12 @@ public class MovieController {
                 allocatedSeat.setReserved(true);
                 allocatedSeats[i] = allocatedSeat;
                 freeSeatsPointer++;
-
             }
         }
         else{
             allocatedSeats = new Seat[0];
         }
         return allocatedSeats;
-
     }
-
-
 
 }
