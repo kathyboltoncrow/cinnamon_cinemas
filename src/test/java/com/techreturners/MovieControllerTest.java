@@ -7,7 +7,7 @@ import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class TestMovieController {
+public class MovieControllerTest {
 
     private MovieController controller;
 
@@ -59,6 +59,7 @@ public class TestMovieController {
         assertTrue(availableSeatCount >= upperbound + 1);
 
         while(seatsAvailable) {
+            //random number generated from 0 to 2, +1 gives the range 1 to 3
             int int_random = randomSeatsRequested.nextInt(upperbound) + 1;
             Seat[] seats = controller.getSeats(int_random);
             if(seats.length == 0){

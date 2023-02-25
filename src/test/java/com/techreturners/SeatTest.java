@@ -2,7 +2,7 @@ package com.techreturners;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-public class TestSeat {
+public class SeatTest {
     @Test
     public void intToSeat(){
         assertEquals("A1", Seat.intToSeatNumber(0));
